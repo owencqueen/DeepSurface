@@ -3,13 +3,14 @@ import argparse
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import roc_auc_score, average_precision_score
 
 # Huggingface:
 from datasets import Dataset
 from transformers import AutoTokenizer, EsmForSequenceClassification as ESMClf, EsmModel as ESM
 from transformers import TrainingArguments, Trainer
 
-DEBUG = False
+DEBUG = False # Set to use only validation dataset - saves loading time
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -26,16 +27,14 @@ def unravel_df(df):
     return newdf
 
 def compute_metrics(epred):
+    # Computes metrics from specialized output from huggingface
 
-    preds = epred[0]
+    preds = np.exp(epred[0]) / np.sum(np.exp(epred[0]), axis = 0)
     labels = epred[1]
 
-    print('preds', preds)
-    print('labels', labels)
-
     metrics = {}
-
-    metrics['auprc'] =  0.5
+    metrics['auprc'] = average_precision_score(labels, preds[:,1])
+    metrics['auroc'] = roc_auc_score(labels, preds[:,1])
 
     return metrics
 
@@ -87,8 +86,10 @@ def get_training_args(args):
         overwrite_output_dir = True,
         num_train_epochs = args.epochs,
         learning_rate = args.lr,
+        evaluation_strategy = 'steps',
+        eval_steps = args.eval_steps,
         per_device_train_batch_size = args.batch_size,
-        gradient_accumulation_steps = 50,
+        gradient_accumulation_steps = 100,
         fp16=True if torch.cuda.is_available() else False,
     )
     return targs
@@ -114,7 +115,8 @@ if __name__ == '__main__':
     parser.add_argument('--epochs', type = int, default = 100)
     parser.add_argument('--lr', type=float, default = 1e-4)
     parser.add_argument('--batch_size', type=int, default = 32)
-    parser.add_argument('--num_params', default = '8m', help = 'options = 8m, 35m, 650m')
+    parser.add_argument('--num_params', type=str, default = '8m', help = 'options = 8m, 35m, 650m')
+    parser.add_argument('--eval_steps', type = int, default = 500, help = 'number of steps in between evaluations')
 
     args = parser.parse_args()
 
