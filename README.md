@@ -27,3 +27,20 @@ There are several potential optimizations for making the prediction performance 
 4. Speeding up the training. If high-performance computing and efficient training of neural nets interests you, there is the option of speeding this training procedure up. Even with 8 million parameters, the training is still pretty slow. I use floating-point 16 training, i.e., storing the model weights as 16-bit numbers instead of 32-bit normal floats, which saves space. Also, I use gradient accumulation, which saves memory and time by waiting to perform backpropagation until a certain number of steps has passed. There are plenty of other options on huggingface, I recommend checking [this link](https://huggingface.co/docs/transformers/v4.18.0/en/performance) out!
 
 All of these will be great chances to get practical experience with huggingface! If you have any questions, feel free to reach out to Owen on Slack!
+
+## Dependencies
+Here is a toned-down list of dependencies to install if you're manually installing with conda:
+```
+biopython
+datasets==2.1.0
+matplotlib
+numpy
+pandas
+scikit-learn
+scipy
+tokenizers==0.12.1
+torch==1.13.1
+tqdm
+transformers==4.26.0
+```
+To install each of these, copy and paste one of the above lines and use it in your pip intall command, for example `pip install torch==1.13.1`. **Make sure you are first in your conda environment of choice**. You make activate your conda environment with `conda activate <name of environment>`. If you run into any issues running the code after installing the above packages, let Owen know.
