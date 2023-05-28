@@ -1,0 +1,14 @@
+data/fixed_split/
+xai_analysis/*.csv
+xai_analysis/*.npy
+esm/eval_scripts/
+esm/scripts/
+esm/model_outputs/
+esm/logs/
+esm/wandb/
+esm/tmp_trainer/
+esm/*.pt
+esm/xai/example.pt
+esm/*.sh
+**/.ipynb_checkpoints/
+**/__pycache__/
