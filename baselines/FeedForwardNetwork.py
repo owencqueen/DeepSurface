@@ -6,6 +6,7 @@ import pickle
 import tensorflow as tf
 from tensorflow import keras as ks
 from tensorflow.keras import layers
+from functools import reduce
 
 def unravel_df(df):
     seq_surf = df['surf.sequence'].tolist()
@@ -30,7 +31,7 @@ df = df.convert_dtypes()
 
 # Load one split:
 split_no = 1
-inds = pickle.load(open('/lustre/isaac/scratch/shaebarh/DeepSurface/data/splits.pkl', 'rb'))
+inds = pickle.load(open('/lustre/isaac/scratch/ababjac/DeepSurface/data/splits.pkl', 'rb'))
 
 for train_inds, test_inds in inds[split_no]:
     train_set = df.iloc[train_inds,:]
@@ -119,7 +120,7 @@ for i in range(5):
     print("PRC:", prc)
 
 def Average(lst):
-    return reduce(lambda a, b: a + b, lst) / len(lst)
+    return sum(lst) / len(lst)
 
 
 print("AVERAGE_ROC: " + Average(avg_roc))

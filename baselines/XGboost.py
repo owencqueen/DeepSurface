@@ -36,7 +36,7 @@ def unravel_df(df):
 
 # Load one split:
 split_no = 1
-inds = pickle.load(open('/lustre/isaac/scratch/shaebarh/DeepSurface/data/splits.pkl', 'rb'))
+inds = pickle.load(open('/lustre/isaac/scratch/ababjac/DeepSurface/data/splits.pkl', 'rb'))
 
 for train_inds, test_inds in inds[split_no]:
     train_set = df.iloc[train_inds,:]

@@ -1,0 +1,1 @@
+{'mean absolute error [scaled_effect1]': tensor(0.1280, device='cuda:0'), 'root mean squared error [scaled_effect1]': tensor(0.1814, device='cuda:0'), 'spearmanr [scaled_effect1]': tensor(0.7942, device='cuda:0')}
