@@ -1,0 +1,1482 @@
+21:36:01   Extracting /lustre/isaac/scratch/oqueen/DeepSurface/data/subcellular_localization_2.tar.gz to /lustre/isaac/scratch/oqueen/DeepSurface/data
+21:36:11   Downloading https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t12_35M_UR50D.pt to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/esm2_t12_35M_UR50D.pt
+21:36:13   Downloading https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t12_35M_UR50D.pt to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/esm2_t12_35M_UR50D.pt
+21:36:16   Preprocess training set
+21:36:21   {'batch_size': 32,
+ 'class': 'core.Engine',
+ 'gpus': [0],
+ 'gradient_interval': 1,
+ 'log_interval': 100,
+ 'logger': 'logging',
+ 'num_worker': 0,
+ 'optimizer': {'amsgrad': False,
+               'betas': (0.9, 0.999),
+               'capturable': False,
+               'class': 'optim.Adam',
+               'differentiable': False,
+               'eps': 1e-08,
+               'foreach': None,
+               'fused': False,
+               'lr': 0.0002,
+               'maximize': False,
+               'weight_decay': 0},
+ 'scheduler': None,
+ 'task': {'class': 'tasks.PropertyPrediction',
+          'criterion': 'ce',
+          'graph_construction_model': None,
+          'metric': ('auroc', 'auprc'),
+          'mlp_batch_norm': False,
+          'mlp_dropout': 0,
+          'model': {'class': 'models.CustomModel',
+                    'model': 'ESM-2-35m',
+                    'path': '/lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/',
+                    'readout': 'sum'},
+          'normalization': False,
+          'num_class': None,
+          'num_mlp_layer': 2,
+          'task': ['localization'],
+          'verbose': 0},
+ 'test_set': {'class': 'dataset.Subset',
+              'dataset': {'atom_feature': None,
+                          'bond_feature': None,
+                          'class': 'datasets.BinaryLocalization',
+                          'path': '/lustre/isaac/scratch/oqueen/DeepSurface/data/',
+                          'residue_feature': 'default',
+                          'transform': {'class': 'transforms.Compose',
+                                        'transforms': [{'class': 'transforms.TruncateProtein',
+                                                        'keys': 'graph',
+                                                        'max_length': 1024,
+                                                        'random': False},
+                                                       {'class': 'transforms.ProteinView',
+                                                        'keys': 'graph',
+                                                        'view': 'residue'}]},
+                          'verbose': 1},
+              'indices': range(6913, 8662)},
+ 'train_set': {'class': 'dataset.Subset',
+               'dataset': {'atom_feature': None,
+                           'bond_feature': None,
+                           'class': 'datasets.BinaryLocalization',
+                           'path': '/lustre/isaac/scratch/oqueen/DeepSurface/data/',
+                           'residue_feature': 'default',
+                           'transform': {'class': 'transforms.Compose',
+                                         'transforms': [{'class': 'transforms.TruncateProtein',
+                                                         'keys': 'graph',
+                                                         'max_length': 1024,
+                                                         'random': False},
+                                                        {'class': 'transforms.ProteinView',
+                                                         'keys': 'graph',
+                                                         'view': 'residue'}]},
+                           'verbose': 1},
+               'indices': range(0, 5184)},
+ 'valid_set': {'class': 'dataset.Subset',
+               'dataset': {'atom_feature': None,
+                           'bond_feature': None,
+                           'class': 'datasets.BinaryLocalization',
+                           'path': '/lustre/isaac/scratch/oqueen/DeepSurface/data/',
+                           'residue_feature': 'default',
+                           'transform': {'class': 'transforms.Compose',
+                                         'transforms': [{'class': 'transforms.TruncateProtein',
+                                                         'keys': 'graph',
+                                                         'max_length': 1024,
+                                                         'random': False},
+                                                        {'class': 'transforms.ProteinView',
+                                                         'keys': 'graph',
+                                                         'view': 'residue'}]},
+                           'verbose': 1},
+               'indices': range(5184, 6913)}}
+21:36:21   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:36:21   Epoch 0 begin
+21:36:24   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:36:24   cross entropy: 0.688259
+21:37:42   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:37:42   cross entropy: 0.617744
+21:38:31   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:38:31   Epoch 0 end
+21:38:31   duration: 2.17 mins
+21:38:31   speed: 1.24 batch / sec
+21:38:31   ETA: 19.53 mins
+21:38:31   max GPU memory: 5725.2 MiB
+21:38:31   ------------------------------
+21:38:31   average cross entropy: 0.608429
+21:38:31   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:38:31   Epoch 1 begin
+21:39:02   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:39:02   cross entropy: 0.621291
+21:40:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:40:22   cross entropy: 0.438277
+21:40:40   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:40:40   Epoch 1 end
+21:40:40   duration: 2.15 mins
+21:40:40   speed: 1.25 batch / sec
+21:40:40   ETA: 17.29 mins
+21:40:40   max GPU memory: 5725.2 MiB
+21:40:40   ------------------------------
+21:40:40   average cross entropy: 0.47132
+21:40:40   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:40:40   Epoch 2 begin
+21:41:41   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:41:41   cross entropy: 0.463784
+21:42:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:42:49   Epoch 2 end
+21:42:49   duration: 2.14 mins
+21:42:49   speed: 1.26 batch / sec
+21:42:49   ETA: 15.09 mins
+21:42:49   max GPU memory: 5725.1 MiB
+21:42:49   ------------------------------
+21:42:49   average cross entropy: 0.390691
+21:42:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:42:49   Epoch 3 begin
+21:43:01   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:43:01   cross entropy: 0.436784
+21:44:20   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:44:20   cross entropy: 0.314766
+21:44:58   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:44:58   Epoch 3 end
+21:44:58   duration: 2.15 mins
+21:44:58   speed: 1.26 batch / sec
+21:44:58   ETA: 12.92 mins
+21:44:58   max GPU memory: 5725.3 MiB
+21:44:58   ------------------------------
+21:44:58   average cross entropy: 0.357256
+21:44:58   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:44:58   Epoch 4 begin
+21:45:40   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:45:40   cross entropy: 0.196984
+21:46:59   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:46:59   cross entropy: 0.423167
+21:47:06   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:47:06   Epoch 4 end
+21:47:06   duration: 2.14 mins
+21:47:06   speed: 1.26 batch / sec
+21:47:06   ETA: 10.75 mins
+21:47:06   max GPU memory: 5725.2 MiB
+21:47:06   ------------------------------
+21:47:06   average cross entropy: 0.343137
+21:47:06   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:47:06   Epoch 5 begin
+21:48:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:48:18   cross entropy: 0.309813
+21:49:14   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:49:14   Epoch 5 end
+21:49:14   duration: 2.13 mins
+21:49:14   speed: 1.27 batch / sec
+21:49:14   ETA: 8.59 mins
+21:49:14   max GPU memory: 5725.2 MiB
+21:49:14   ------------------------------
+21:49:14   average cross entropy: 0.326813
+21:49:14   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:49:14   Epoch 6 begin
+21:49:37   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:49:37   cross entropy: 0.350823
+21:50:56   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:50:56   cross entropy: 0.284892
+21:51:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:51:22   Epoch 6 end
+21:51:22   duration: 2.13 mins
+21:51:22   speed: 1.27 batch / sec
+21:51:22   ETA: 6.44 mins
+21:51:22   max GPU memory: 5725.2 MiB
+21:51:22   ------------------------------
+21:51:22   average cross entropy: 0.317383
+21:51:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:51:22   Epoch 7 begin
+21:52:15   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:52:15   cross entropy: 0.457481
+21:53:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:53:30   Epoch 7 end
+21:53:30   duration: 2.14 mins
+21:53:30   speed: 1.26 batch / sec
+21:53:30   ETA: 4.29 mins
+21:53:30   max GPU memory: 5725.0 MiB
+21:53:30   ------------------------------
+21:53:30   average cross entropy: 0.308114
+21:53:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:53:30   Epoch 8 begin
+21:53:34   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:53:34   cross entropy: 0.349091
+21:54:53   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:54:53   cross entropy: 0.388751
+21:55:38   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:55:38   Epoch 8 end
+21:55:38   duration: 2.12 mins
+21:55:38   speed: 1.27 batch / sec
+21:55:38   ETA: 2.14 mins
+21:55:38   max GPU memory: 5725.3 MiB
+21:55:38   ------------------------------
+21:55:38   average cross entropy: 0.304511
+21:55:38   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:55:38   Epoch 9 begin
+21:56:12   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:56:12   cross entropy: 0.238749
+21:57:31   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:57:31   cross entropy: 0.244686
+21:57:46   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:57:46   Epoch 9 end
+21:57:46   duration: 2.14 mins
+21:57:46   speed: 1.26 batch / sec
+21:57:46   ETA: 0.00 secs
+21:57:46   max GPU memory: 5723.9 MiB
+21:57:46   ------------------------------
+21:57:46   average cross entropy: 0.301221
+21:57:46   Save checkpoint to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/epoch_10.pth
+21:57:46   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:57:46   Evaluate on valid
+21:58:29   ------------------------------
+21:58:29   auprc [localization]: 0.393236
+21:58:29   auroc [localization]: 0.0648529
+21:58:29   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:58:29   Epoch 10 begin
+21:59:33   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+21:59:33   cross entropy: 0.573647
+22:00:38   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:00:38   Epoch 10 end
+22:00:38   duration: 2.86 mins
+22:00:38   speed: 0.94 batch / sec
+22:00:38   ETA: 25.78 mins
+22:00:38   max GPU memory: 5725.3 MiB
+22:00:38   ------------------------------
+22:00:38   average cross entropy: 0.291006
+22:00:38   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:00:38   Epoch 11 begin
+22:00:53   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:00:53   cross entropy: 0.309986
+22:02:12   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:02:12   cross entropy: 0.257347
+22:02:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:02:47   Epoch 11 end
+22:02:47   duration: 2.15 mins
+22:02:47   speed: 1.26 batch / sec
+22:02:47   ETA: 20.04 mins
+22:02:47   max GPU memory: 5725.2 MiB
+22:02:47   ------------------------------
+22:02:47   average cross entropy: 0.287282
+22:02:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:02:47   Epoch 12 begin
+22:03:32   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:03:32   cross entropy: 0.349265
+22:04:51   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:04:51   cross entropy: 0.356055
+22:04:55   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:04:55   Epoch 12 end
+22:04:55   duration: 2.14 mins
+22:04:55   speed: 1.26 batch / sec
+22:04:55   ETA: 16.69 mins
+22:04:55   max GPU memory: 5725.0 MiB
+22:04:55   ------------------------------
+22:04:55   average cross entropy: 0.284508
+22:04:55   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:04:55   Epoch 13 begin
+22:06:11   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:06:11   cross entropy: 0.271019
+22:07:04   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:07:04   Epoch 13 end
+22:07:04   duration: 2.14 mins
+22:07:04   speed: 1.26 batch / sec
+22:07:04   ETA: 13.94 mins
+22:07:04   max GPU memory: 5725.4 MiB
+22:07:04   ------------------------------
+22:07:04   average cross entropy: 0.283801
+22:07:04   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:07:04   Epoch 14 begin
+22:07:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:07:30   cross entropy: 0.148762
+22:08:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:08:49   cross entropy: 0.158755
+22:09:12   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:09:12   Epoch 14 end
+22:09:12   duration: 2.14 mins
+22:09:12   speed: 1.26 batch / sec
+22:09:12   ETA: 11.44 mins
+22:09:12   max GPU memory: 5725.3 MiB
+22:09:12   ------------------------------
+22:09:12   average cross entropy: 0.283293
+22:09:12   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:09:12   Epoch 15 begin
+22:10:08   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:10:08   cross entropy: 0.523182
+22:11:20   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:11:20   Epoch 15 end
+22:11:20   duration: 2.13 mins
+22:11:20   speed: 1.27 batch / sec
+22:11:20   ETA: 9.04 mins
+22:11:20   max GPU memory: 5725.1 MiB
+22:11:20   ------------------------------
+22:11:20   average cross entropy: 0.272048
+22:11:20   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:11:20   Epoch 16 begin
+22:11:27   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:11:27   cross entropy: 0.2011
+22:12:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:12:47   cross entropy: 0.446113
+22:13:29   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:13:29   Epoch 16 end
+22:13:29   duration: 2.14 mins
+22:13:29   speed: 1.26 batch / sec
+22:13:29   ETA: 6.73 mins
+22:13:29   max GPU memory: 5725.1 MiB
+22:13:29   ------------------------------
+22:13:29   average cross entropy: 0.27243
+22:13:29   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:13:29   Epoch 17 begin
+22:14:07   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:14:07   cross entropy: 0.380865
+22:15:26   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:15:26   cross entropy: 0.25935
+22:15:38   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:15:38   Epoch 17 end
+22:15:38   duration: 2.16 mins
+22:15:38   speed: 1.25 batch / sec
+22:15:38   ETA: 4.47 mins
+22:15:38   max GPU memory: 5725.3 MiB
+22:15:38   ------------------------------
+22:15:38   average cross entropy: 0.276278
+22:15:38   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:15:38   Epoch 18 begin
+22:16:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:16:47   cross entropy: 0.146507
+22:17:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:17:49   Epoch 18 end
+22:17:49   duration: 2.18 mins
+22:17:49   speed: 1.24 batch / sec
+22:17:49   ETA: 2.23 mins
+22:17:49   max GPU memory: 5725.2 MiB
+22:17:49   ------------------------------
+22:17:49   average cross entropy: 0.269106
+22:17:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:17:49   Epoch 19 begin
+22:18:07   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:18:07   cross entropy: 0.27182
+22:19:27   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:19:27   cross entropy: 0.335876
+22:19:58   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:19:58   Epoch 19 end
+22:19:58   duration: 2.16 mins
+22:19:58   speed: 1.25 batch / sec
+22:19:58   ETA: 0.00 secs
+22:19:58   max GPU memory: 5725.1 MiB
+22:19:58   ------------------------------
+22:19:58   average cross entropy: 0.266814
+22:19:58   Save checkpoint to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/epoch_40.pth
+22:19:58   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:19:58   Evaluate on valid
+22:20:42   ------------------------------
+22:20:42   auprc [localization]: 0.392157
+22:20:42   auroc [localization]: 0.0588053
+22:20:43   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:20:43   Epoch 20 begin
+22:21:31   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:21:31   cross entropy: 0.253657
+22:22:52   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:22:52   cross entropy: 0.449546
+22:22:53   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:22:53   Epoch 20 end
+22:22:53   duration: 2.91 mins
+22:22:53   speed: 0.93 batch / sec
+22:22:53   ETA: 26.16 mins
+22:22:53   max GPU memory: 5725.4 MiB
+22:22:53   ------------------------------
+22:22:53   average cross entropy: 0.260194
+22:22:53   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:22:53   Epoch 21 begin
+22:24:11   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:24:11   cross entropy: 0.318059
+22:25:01   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:25:01   Epoch 21 end
+22:25:01   duration: 2.15 mins
+22:25:01   speed: 1.26 batch / sec
+22:25:01   ETA: 20.21 mins
+22:25:01   max GPU memory: 5725.8 MiB
+22:25:01   ------------------------------
+22:25:01   average cross entropy: 0.260471
+22:25:01   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:25:01   Epoch 22 begin
+22:25:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:25:30   cross entropy: 0.313572
+22:26:50   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:26:50   cross entropy: 0.248896
+22:27:09   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:27:09   Epoch 22 end
+22:27:09   duration: 2.13 mins
+22:27:09   speed: 1.27 batch / sec
+22:27:09   ETA: 16.76 mins
+22:27:09   max GPU memory: 5725.0 MiB
+22:27:09   ------------------------------
+22:27:09   average cross entropy: 0.261057
+22:27:09   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:27:09   Epoch 23 begin
+22:28:08   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:28:08   cross entropy: 0.251185
+22:29:17   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:29:17   Epoch 23 end
+22:29:17   duration: 2.13 mins
+22:29:17   speed: 1.27 batch / sec
+22:29:17   ETA: 13.98 mins
+22:29:17   max GPU memory: 5725.2 MiB
+22:29:17   ------------------------------
+22:29:17   average cross entropy: 0.262039
+22:29:17   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:29:17   Epoch 24 begin
+22:29:27   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:29:27   cross entropy: 0.401047
+22:30:46   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:30:46   cross entropy: 0.225865
+22:31:25   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:31:25   Epoch 24 end
+22:31:25   duration: 2.12 mins
+22:31:25   speed: 1.27 batch / sec
+22:31:25   ETA: 11.44 mins
+22:31:25   max GPU memory: 5725.0 MiB
+22:31:25   ------------------------------
+22:31:25   average cross entropy: 0.254597
+22:31:25   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:31:25   Epoch 25 begin
+22:32:05   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:32:05   cross entropy: 0.187395
+22:33:24   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:33:24   cross entropy: 0.251522
+22:33:33   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:33:33   Epoch 25 end
+22:33:33   duration: 2.14 mins
+22:33:33   speed: 1.26 batch / sec
+22:33:33   ETA: 9.06 mins
+22:33:33   max GPU memory: 5725.0 MiB
+22:33:33   ------------------------------
+22:33:33   average cross entropy: 0.254847
+22:33:33   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:33:33   Epoch 26 begin
+22:34:44   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:34:44   cross entropy: 0.230689
+22:35:41   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:35:41   Epoch 26 end
+22:35:41   duration: 2.13 mins
+22:35:41   speed: 1.27 batch / sec
+22:35:41   ETA: 6.74 mins
+22:35:41   max GPU memory: 5725.1 MiB
+22:35:41   ------------------------------
+22:35:41   average cross entropy: 0.255953
+22:35:41   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:35:41   Epoch 27 begin
+22:36:03   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:36:03   cross entropy: 0.272285
+22:37:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:37:22   cross entropy: 0.209273
+22:37:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:37:49   Epoch 27 end
+22:37:49   duration: 2.13 mins
+22:37:49   speed: 1.27 batch / sec
+22:37:49   ETA: 4.46 mins
+22:37:49   max GPU memory: 5725.1 MiB
+22:37:49   ------------------------------
+22:37:49   average cross entropy: 0.249048
+22:37:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:37:49   Epoch 28 begin
+22:38:40   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:38:40   cross entropy: 0.15765
+22:39:57   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:39:57   Epoch 28 end
+22:39:57   duration: 2.13 mins
+22:39:57   speed: 1.26 batch / sec
+22:39:57   ETA: 2.22 mins
+22:39:57   max GPU memory: 5725.2 MiB
+22:39:57   ------------------------------
+22:39:57   average cross entropy: 0.247101
+22:39:57   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:39:57   Epoch 29 begin
+22:40:00   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:40:00   cross entropy: 0.219267
+22:41:19   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:41:19   cross entropy: 0.0911476
+22:42:06   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:42:06   Epoch 29 end
+22:42:06   duration: 2.15 mins
+22:42:06   speed: 1.26 batch / sec
+22:42:06   ETA: 0.00 secs
+22:42:06   max GPU memory: 5725.2 MiB
+22:42:06   ------------------------------
+22:42:06   average cross entropy: 0.251415
+22:42:06   Save checkpoint to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/epoch_90.pth
+22:42:06   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:42:06   Evaluate on valid
+22:42:49   ------------------------------
+22:42:49   auprc [localization]: 0.391767
+22:42:49   auroc [localization]: 0.0563722
+22:42:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:42:49   Epoch 30 begin
+22:43:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:43:22   cross entropy: 0.150621
+22:44:42   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:44:42   cross entropy: 0.443418
+22:44:58   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:44:58   Epoch 30 end
+22:44:58   duration: 2.86 mins
+22:44:58   speed: 0.94 batch / sec
+22:44:58   ETA: 25.77 mins
+22:44:58   max GPU memory: 5725.3 MiB
+22:44:58   ------------------------------
+22:44:58   average cross entropy: 0.249699
+22:44:58   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:44:58   Epoch 31 begin
+22:46:00   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:46:00   cross entropy: 0.359171
+22:47:06   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:47:06   Epoch 31 end
+22:47:06   duration: 2.13 mins
+22:47:06   speed: 1.27 batch / sec
+22:47:06   ETA: 19.98 mins
+22:47:06   max GPU memory: 5725.1 MiB
+22:47:06   ------------------------------
+22:47:06   average cross entropy: 0.247299
+22:47:06   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:47:06   Epoch 32 begin
+22:47:19   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:47:19   cross entropy: 0.275501
+22:48:39   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:48:39   cross entropy: 0.448379
+22:49:14   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:49:14   Epoch 32 end
+22:49:14   duration: 2.14 mins
+22:49:14   speed: 1.26 batch / sec
+22:49:14   ETA: 16.64 mins
+22:49:14   max GPU memory: 5725.1 MiB
+22:49:14   ------------------------------
+22:49:14   average cross entropy: 0.249272
+22:49:14   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:49:14   Epoch 33 begin
+22:49:57   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:49:57   cross entropy: 0.162821
+22:51:16   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:51:16   cross entropy: 0.101731
+22:51:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:51:22   Epoch 33 end
+22:51:22   duration: 2.13 mins
+22:51:22   speed: 1.27 batch / sec
+22:51:22   ETA: 13.89 mins
+22:51:22   max GPU memory: 5725.1 MiB
+22:51:22   ------------------------------
+22:51:22   average cross entropy: 0.249261
+22:51:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:51:22   Epoch 34 begin
+22:52:36   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:52:36   cross entropy: 0.187093
+22:53:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:53:30   Epoch 34 end
+22:53:30   duration: 2.14 mins
+22:53:30   speed: 1.26 batch / sec
+22:53:30   ETA: 11.41 mins
+22:53:30   max GPU memory: 5725.0 MiB
+22:53:30   ------------------------------
+22:53:30   average cross entropy: 0.242665
+22:53:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:53:30   Epoch 35 begin
+22:53:55   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:53:55   cross entropy: 0.0785826
+22:55:14   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:55:14   cross entropy: 0.18197
+22:55:38   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:55:38   Epoch 35 end
+22:55:38   duration: 2.13 mins
+22:55:38   speed: 1.27 batch / sec
+22:55:38   ETA: 9.02 mins
+22:55:38   max GPU memory: 5725.2 MiB
+22:55:38   ------------------------------
+22:55:38   average cross entropy: 0.241661
+22:55:38   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:55:38   Epoch 36 begin
+22:56:32   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:56:32   cross entropy: 0.304741
+22:57:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:57:47   Epoch 36 end
+22:57:47   duration: 2.15 mins
+22:57:47   speed: 1.25 batch / sec
+22:57:47   ETA: 6.72 mins
+22:57:47   max GPU memory: 5725.2 MiB
+22:57:47   ------------------------------
+22:57:47   average cross entropy: 0.243176
+22:57:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:57:47   Epoch 37 begin
+22:57:53   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:57:53   cross entropy: 0.190193
+22:59:12   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:59:12   cross entropy: 0.292784
+22:59:56   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:59:56   Epoch 37 end
+22:59:56   duration: 2.14 mins
+22:59:56   speed: 1.26 batch / sec
+22:59:56   ETA: 4.46 mins
+22:59:56   max GPU memory: 5725.1 MiB
+22:59:56   ------------------------------
+22:59:56   average cross entropy: 0.243194
+22:59:56   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+22:59:56   Epoch 38 begin
+23:00:31   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:00:31   cross entropy: 0.26462
+23:01:50   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:01:51   cross entropy: 0.328262
+23:02:04   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:02:04   Epoch 38 end
+23:02:04   duration: 2.14 mins
+23:02:04   speed: 1.26 batch / sec
+23:02:04   ETA: 2.22 mins
+23:02:04   max GPU memory: 5725.2 MiB
+23:02:04   ------------------------------
+23:02:04   average cross entropy: 0.234304
+23:02:04   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:02:04   Epoch 39 begin
+23:03:09   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:03:09   cross entropy: 0.0996454
+23:04:13   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:04:13   Epoch 39 end
+23:04:13   duration: 2.15 mins
+23:04:13   speed: 1.26 batch / sec
+23:04:13   ETA: 0.00 secs
+23:04:13   max GPU memory: 5725.4 MiB
+23:04:13   ------------------------------
+23:04:13   average cross entropy: 0.231794
+23:04:13   Save checkpoint to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/epoch_160.pth
+23:04:13   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:04:13   Evaluate on valid
+23:04:57   ------------------------------
+23:04:57   auprc [localization]: 0.391496
+23:04:57   auroc [localization]: 0.0547833
+23:04:57   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:04:57   Epoch 40 begin
+23:05:13   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:05:13   cross entropy: 0.177962
+23:06:32   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:06:32   cross entropy: 0.393157
+23:07:05   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:07:05   Epoch 40 end
+23:07:05   duration: 2.86 mins
+23:07:05   speed: 0.94 batch / sec
+23:07:05   ETA: 25.77 mins
+23:07:05   max GPU memory: 5725.3 MiB
+23:07:05   ------------------------------
+23:07:05   average cross entropy: 0.234061
+23:07:05   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:07:05   Epoch 41 begin
+23:07:52   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:07:52   cross entropy: 0.344692
+23:09:11   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:09:11   cross entropy: 0.265422
+23:09:13   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:09:13   Epoch 41 end
+23:09:13   duration: 2.14 mins
+23:09:13   speed: 1.26 batch / sec
+23:09:13   ETA: 20.01 mins
+23:09:13   max GPU memory: 5725.1 MiB
+23:09:13   ------------------------------
+23:09:13   average cross entropy: 0.234139
+23:09:13   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:09:13   Epoch 42 begin
+23:10:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:10:30   cross entropy: 0.185713
+23:11:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:11:22   Epoch 42 end
+23:11:22   duration: 2.14 mins
+23:11:22   speed: 1.26 batch / sec
+23:11:22   ETA: 16.67 mins
+23:11:22   max GPU memory: 5723.8 MiB
+23:11:22   ------------------------------
+23:11:22   average cross entropy: 0.225134
+23:11:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:11:22   Epoch 43 begin
+23:11:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:11:49   cross entropy: 0.186007
+23:13:09   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:13:09   cross entropy: 0.318542
+23:13:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:13:30   Epoch 43 end
+23:13:30   duration: 2.14 mins
+23:13:30   speed: 1.26 batch / sec
+23:13:30   ETA: 13.93 mins
+23:13:30   max GPU memory: 5725.1 MiB
+23:13:30   ------------------------------
+23:13:30   average cross entropy: 0.228799
+23:13:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:13:30   Epoch 44 begin
+23:14:28   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:14:28   cross entropy: 0.118918
+23:15:38   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:15:38   Epoch 44 end
+23:15:38   duration: 2.13 mins
+23:15:38   speed: 1.27 batch / sec
+23:15:38   ETA: 11.42 mins
+23:15:38   max GPU memory: 5725.2 MiB
+23:15:38   ------------------------------
+23:15:38   average cross entropy: 0.227084
+23:15:38   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:15:38   Epoch 45 begin
+23:15:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:15:47   cross entropy: 0.205883
+23:17:06   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:17:06   cross entropy: 0.288692
+23:17:46   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:17:46   Epoch 45 end
+23:17:46   duration: 2.13 mins
+23:17:46   speed: 1.27 batch / sec
+23:17:46   ETA: 9.03 mins
+23:17:46   max GPU memory: 5725.4 MiB
+23:17:46   ------------------------------
+23:17:46   average cross entropy: 0.227939
+23:17:46   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:17:46   Epoch 46 begin
+23:18:24   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:18:24   cross entropy: 0.157832
+23:19:44   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:19:44   cross entropy: 0.255109
+23:19:55   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:19:55   Epoch 46 end
+23:19:55   duration: 2.15 mins
+23:19:55   speed: 1.26 batch / sec
+23:19:55   ETA: 6.72 mins
+23:19:55   max GPU memory: 5725.2 MiB
+23:19:55   ------------------------------
+23:19:55   average cross entropy: 0.223694
+23:19:55   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:19:55   Epoch 47 begin
+23:21:03   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:21:03   cross entropy: 0.243809
+23:22:02   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:22:02   Epoch 47 end
+23:22:02   duration: 2.12 mins
+23:22:02   speed: 1.27 batch / sec
+23:22:02   ETA: 4.45 mins
+23:22:02   max GPU memory: 5725.5 MiB
+23:22:02   ------------------------------
+23:22:02   average cross entropy: 0.224861
+23:22:02   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:22:02   Epoch 48 begin
+23:22:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:22:22   cross entropy: 0.320539
+23:23:41   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:23:41   cross entropy: 0.128485
+23:24:10   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:24:10   Epoch 48 end
+23:24:10   duration: 2.13 mins
+23:24:10   speed: 1.27 batch / sec
+23:24:10   ETA: 2.22 mins
+23:24:10   max GPU memory: 5725.2 MiB
+23:24:10   ------------------------------
+23:24:10   average cross entropy: 0.223615
+23:24:10   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:24:10   Epoch 49 begin
+23:25:00   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:25:00   cross entropy: 0.101793
+23:26:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:26:18   Epoch 49 end
+23:26:18   duration: 2.14 mins
+23:26:18   speed: 1.26 batch / sec
+23:26:18   ETA: 0.00 secs
+23:26:18   max GPU memory: 5725.1 MiB
+23:26:18   ------------------------------
+23:26:18   average cross entropy: 0.217565
+23:26:18   Save checkpoint to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/epoch_250.pth
+23:26:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:26:18   Evaluate on valid
+23:27:01   ------------------------------
+23:27:01   auprc [localization]: 0.391285
+23:27:01   auroc [localization]: 0.0537657
+23:27:01   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:27:01   Epoch 50 begin
+23:27:02   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:27:02   cross entropy: 0.293717
+23:28:21   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:28:21   cross entropy: 0.236714
+23:29:09   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:29:09   Epoch 50 end
+23:29:09   duration: 2.86 mins
+23:29:09   speed: 0.95 batch / sec
+23:29:09   ETA: 25.70 mins
+23:29:09   max GPU memory: 5725.3 MiB
+23:29:09   ------------------------------
+23:29:09   average cross entropy: 0.216504
+23:29:09   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:29:09   Epoch 51 begin
+23:29:40   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:29:40   cross entropy: 0.187556
+23:30:59   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:30:59   cross entropy: 0.101431
+23:31:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:31:18   Epoch 51 end
+23:31:18   duration: 2.14 mins
+23:31:18   speed: 1.26 batch / sec
+23:31:18   ETA: 19.98 mins
+23:31:18   max GPU memory: 5725.1 MiB
+23:31:18   ------------------------------
+23:31:18   average cross entropy: 0.217209
+23:31:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:31:18   Epoch 52 begin
+23:32:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:32:18   cross entropy: 0.318856
+23:33:26   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:33:26   Epoch 52 end
+23:33:26   duration: 2.14 mins
+23:33:26   speed: 1.26 batch / sec
+23:33:26   ETA: 16.64 mins
+23:33:26   max GPU memory: 5725.2 MiB
+23:33:26   ------------------------------
+23:33:26   average cross entropy: 0.230473
+23:33:26   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:33:26   Epoch 53 begin
+23:33:37   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:33:37   cross entropy: 0.100453
+23:34:57   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:34:57   cross entropy: 0.131421
+23:35:34   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:35:34   Epoch 53 end
+23:35:34   duration: 2.14 mins
+23:35:34   speed: 1.26 batch / sec
+23:35:34   ETA: 13.90 mins
+23:35:34   max GPU memory: 5723.8 MiB
+23:35:34   ------------------------------
+23:35:34   average cross entropy: 0.213939
+23:35:34   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:35:34   Epoch 54 begin
+23:36:16   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:36:16   cross entropy: 0.141284
+23:37:35   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:37:35   cross entropy: 0.126551
+23:37:42   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:37:42   Epoch 54 end
+23:37:42   duration: 2.13 mins
+23:37:42   speed: 1.27 batch / sec
+23:37:42   ETA: 11.40 mins
+23:37:42   max GPU memory: 5725.0 MiB
+23:37:42   ------------------------------
+23:37:42   average cross entropy: 0.216958
+23:37:42   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:37:42   Epoch 55 begin
+23:38:55   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:38:55   cross entropy: 0.172578
+23:39:51   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:39:51   Epoch 55 end
+23:39:51   duration: 2.15 mins
+23:39:51   speed: 1.26 batch / sec
+23:39:51   ETA: 9.03 mins
+23:39:51   max GPU memory: 5725.3 MiB
+23:39:51   ------------------------------
+23:39:51   average cross entropy: 0.214255
+23:39:51   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:39:51   Epoch 56 begin
+23:40:14   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:40:14   cross entropy: 0.260765
+23:41:33   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:41:33   cross entropy: 0.266301
+23:41:59   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:41:59   Epoch 56 end
+23:41:59   duration: 2.14 mins
+23:41:59   speed: 1.26 batch / sec
+23:41:59   ETA: 6.72 mins
+23:41:59   max GPU memory: 5725.1 MiB
+23:41:59   ------------------------------
+23:41:59   average cross entropy: 0.211376
+23:41:59   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:41:59   Epoch 57 begin
+23:42:53   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:42:53   cross entropy: 0.242695
+23:44:10   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:44:10   Epoch 57 end
+23:44:10   duration: 2.17 mins
+23:44:10   speed: 1.24 batch / sec
+23:44:10   ETA: 4.47 mins
+23:44:10   max GPU memory: 5725.1 MiB
+23:44:10   ------------------------------
+23:44:10   average cross entropy: 0.210239
+23:44:10   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:44:10   Epoch 58 begin
+23:44:13   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:44:13   cross entropy: 0.19732
+23:45:32   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:45:32   cross entropy: 0.135875
+23:46:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:46:18   Epoch 58 end
+23:46:18   duration: 2.14 mins
+23:46:18   speed: 1.26 batch / sec
+23:46:18   ETA: 2.22 mins
+23:46:18   max GPU memory: 5725.2 MiB
+23:46:18   ------------------------------
+23:46:18   average cross entropy: 0.214006
+23:46:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:46:18   Epoch 59 begin
+23:46:52   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:46:52   cross entropy: 0.201832
+23:48:11   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:48:11   cross entropy: 0.298541
+23:48:26   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:48:26   Epoch 59 end
+23:48:26   duration: 2.13 mins
+23:48:26   speed: 1.27 batch / sec
+23:48:26   ETA: 0.00 secs
+23:48:26   max GPU memory: 5725.2 MiB
+23:48:26   ------------------------------
+23:48:26   average cross entropy: 0.203066
+23:48:26   Save checkpoint to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/epoch_360.pth
+23:48:26   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:48:26   Evaluate on valid
+23:49:09   ------------------------------
+23:49:09   auprc [localization]: 0.391036
+23:49:09   auroc [localization]: 0.0522364
+23:49:09   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:49:09   Epoch 60 begin
+23:50:14   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:50:14   cross entropy: 0.35992
+23:51:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:51:18   Epoch 60 end
+23:51:18   duration: 2.87 mins
+23:51:18   speed: 0.94 batch / sec
+23:51:18   ETA: 25.82 mins
+23:51:18   max GPU memory: 5725.3 MiB
+23:51:18   ------------------------------
+23:51:18   average cross entropy: 0.202195
+23:51:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:51:18   Epoch 61 begin
+23:51:33   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:51:33   cross entropy: 0.230067
+23:52:53   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:52:53   cross entropy: 0.331381
+23:53:27   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:53:27   Epoch 61 end
+23:53:27   duration: 2.14 mins
+23:53:27   speed: 1.26 batch / sec
+23:53:27   ETA: 20.04 mins
+23:53:27   max GPU memory: 5725.1 MiB
+23:53:27   ------------------------------
+23:53:27   average cross entropy: 0.204703
+23:53:27   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:53:27   Epoch 62 begin
+23:54:12   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:54:12   cross entropy: 0.185753
+23:55:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:55:30   cross entropy: 0.178595
+23:55:34   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:55:34   Epoch 62 end
+23:55:34   duration: 2.13 mins
+23:55:34   speed: 1.27 batch / sec
+23:55:34   ETA: 16.65 mins
+23:55:34   max GPU memory: 5725.0 MiB
+23:55:34   ------------------------------
+23:55:34   average cross entropy: 0.203554
+23:55:34   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:55:34   Epoch 63 begin
+23:56:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:56:49   cross entropy: 0.196294
+23:57:42   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:57:42   Epoch 63 end
+23:57:42   duration: 2.12 mins
+23:57:42   speed: 1.27 batch / sec
+23:57:42   ETA: 13.89 mins
+23:57:42   max GPU memory: 5723.9 MiB
+23:57:42   ------------------------------
+23:57:42   average cross entropy: 0.200571
+23:57:42   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:57:42   Epoch 64 begin
+23:58:08   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:58:08   cross entropy: 0.236386
+23:59:26   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:59:26   cross entropy: 0.0699351
+23:59:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:59:49   Epoch 64 end
+23:59:49   duration: 2.12 mins
+23:59:49   speed: 1.28 batch / sec
+23:59:49   ETA: 11.38 mins
+23:59:49   max GPU memory: 5725.2 MiB
+23:59:49   ------------------------------
+23:59:49   average cross entropy: 0.200072
+23:59:49   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+23:59:49   Epoch 65 begin
+00:00:45   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:00:45   cross entropy: 0.124507
+00:01:56   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:01:56   Epoch 65 end
+00:01:56   duration: 2.13 mins
+00:01:56   speed: 1.27 batch / sec
+00:01:56   ETA: 9.01 mins
+00:01:56   max GPU memory: 5725.2 MiB
+00:01:56   ------------------------------
+00:01:56   average cross entropy: 0.206663
+00:01:56   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:01:56   Epoch 66 begin
+00:02:04   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:02:04   cross entropy: 0.20645
+00:03:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:03:22   cross entropy: 0.20278
+00:04:04   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:04:04   Epoch 66 end
+00:04:04   duration: 2.13 mins
+00:04:04   speed: 1.27 batch / sec
+00:04:04   ETA: 6.70 mins
+00:04:04   max GPU memory: 5725.1 MiB
+00:04:04   ------------------------------
+00:04:04   average cross entropy: 0.202031
+00:04:04   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:04:04   Epoch 67 begin
+00:04:41   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:04:41   cross entropy: 0.325736
+00:06:00   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:06:00   cross entropy: 0.169138
+00:06:12   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:06:12   Epoch 67 end
+00:06:12   duration: 2.13 mins
+00:06:12   speed: 1.27 batch / sec
+00:06:12   ETA: 4.44 mins
+00:06:12   max GPU memory: 5725.3 MiB
+00:06:12   ------------------------------
+00:06:12   average cross entropy: 0.195124
+00:06:12   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:06:12   Epoch 68 begin
+00:07:19   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:07:19   cross entropy: 0.148159
+00:08:20   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:08:20   Epoch 68 end
+00:08:20   duration: 2.13 mins
+00:08:20   speed: 1.27 batch / sec
+00:08:20   ETA: 2.21 mins
+00:08:20   max GPU memory: 5725.5 MiB
+00:08:20   ------------------------------
+00:08:20   average cross entropy: 0.194073
+00:08:20   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:08:20   Epoch 69 begin
+00:08:38   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:08:38   cross entropy: 0.153511
+00:09:56   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:09:56   cross entropy: 0.11538
+00:10:27   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:10:27   Epoch 69 end
+00:10:27   duration: 2.12 mins
+00:10:27   speed: 1.27 batch / sec
+00:10:27   ETA: 0.00 secs
+00:10:27   max GPU memory: 5725.2 MiB
+00:10:27   ------------------------------
+00:10:27   average cross entropy: 0.194207
+00:10:27   Save checkpoint to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/epoch_490.pth
+00:10:27   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:10:27   Evaluate on valid
+00:11:10   ------------------------------
+00:11:10   auprc [localization]: 0.390827
+00:11:10   auroc [localization]: 0.050893
+00:11:10   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:11:10   Epoch 70 begin
+00:11:58   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:11:58   cross entropy: 0.126857
+00:13:17   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:13:17   cross entropy: 0.269085
+00:13:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:13:18   Epoch 70 end
+00:13:18   duration: 2.85 mins
+00:13:18   speed: 0.95 batch / sec
+00:13:18   ETA: 25.62 mins
+00:13:18   max GPU memory: 5725.3 MiB
+00:13:18   ------------------------------
+00:13:18   average cross entropy: 0.198661
+00:13:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:13:18   Epoch 71 begin
+00:14:36   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:14:36   cross entropy: 0.300096
+00:15:26   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:15:26   Epoch 71 end
+00:15:26   duration: 2.13 mins
+00:15:26   speed: 1.27 batch / sec
+00:15:26   ETA: 19.92 mins
+00:15:26   max GPU memory: 5725.1 MiB
+00:15:26   ------------------------------
+00:15:26   average cross entropy: 0.193353
+00:15:26   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:15:26   Epoch 72 begin
+00:15:55   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:15:55   cross entropy: 0.187592
+00:17:15   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:17:15   cross entropy: 0.223566
+00:17:35   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:17:35   Epoch 72 end
+00:17:35   duration: 2.15 mins
+00:17:35   speed: 1.26 batch / sec
+00:17:35   ETA: 16.64 mins
+00:17:35   max GPU memory: 5725.2 MiB
+00:17:35   ------------------------------
+00:17:35   average cross entropy: 0.190417
+00:17:35   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:17:35   Epoch 73 begin
+00:18:34   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:18:34   cross entropy: 0.315358
+00:19:43   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:19:43   Epoch 73 end
+00:19:43   duration: 2.14 mins
+00:19:43   speed: 1.26 batch / sec
+00:19:43   ETA: 13.90 mins
+00:19:43   max GPU memory: 5725.0 MiB
+00:19:43   ------------------------------
+00:19:43   average cross entropy: 0.193551
+00:19:43   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:19:43   Epoch 74 begin
+00:19:53   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:19:53   cross entropy: 0.145334
+00:21:12   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:21:12   cross entropy: 0.177363
+00:21:51   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:21:51   Epoch 74 end
+00:21:51   duration: 2.13 mins
+00:21:51   speed: 1.26 batch / sec
+00:21:51   ETA: 11.40 mins
+00:21:51   max GPU memory: 5725.0 MiB
+00:21:51   ------------------------------
+00:21:51   average cross entropy: 0.185563
+00:21:51   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:21:51   Epoch 75 begin
+00:22:31   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:22:31   cross entropy: 0.397571
+00:23:51   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:23:51   cross entropy: 0.130861
+00:23:59   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:23:59   Epoch 75 end
+00:23:59   duration: 2.14 mins
+00:23:59   speed: 1.26 batch / sec
+00:23:59   ETA: 9.03 mins
+00:23:59   max GPU memory: 5725.1 MiB
+00:23:59   ------------------------------
+00:23:59   average cross entropy: 0.18984
+00:23:59   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:23:59   Epoch 76 begin
+00:25:09   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:25:09   cross entropy: 0.0564336
+00:26:07   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:26:07   Epoch 76 end
+00:26:07   duration: 2.13 mins
+00:26:07   speed: 1.27 batch / sec
+00:26:07   ETA: 6.71 mins
+00:26:07   max GPU memory: 5725.2 MiB
+00:26:07   ------------------------------
+00:26:07   average cross entropy: 0.188333
+00:26:07   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:26:07   Epoch 77 begin
+00:26:28   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:26:28   cross entropy: 0.427316
+00:27:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:27:47   cross entropy: 0.116797
+00:28:14   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:28:14   Epoch 77 end
+00:28:14   duration: 2.12 mins
+00:28:14   speed: 1.27 batch / sec
+00:28:14   ETA: 4.45 mins
+00:28:14   max GPU memory: 5725.0 MiB
+00:28:14   ------------------------------
+00:28:14   average cross entropy: 0.187847
+00:28:14   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:28:14   Epoch 78 begin
+00:29:06   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:29:06   cross entropy: 0.221399
+00:30:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:30:22   Epoch 78 end
+00:30:22   duration: 2.13 mins
+00:30:22   speed: 1.27 batch / sec
+00:30:22   ETA: 2.21 mins
+00:30:22   max GPU memory: 5725.5 MiB
+00:30:22   ------------------------------
+00:30:22   average cross entropy: 0.182755
+00:30:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:30:22   Epoch 79 begin
+00:30:25   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:30:25   cross entropy: 0.13116
+00:31:43   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:31:43   cross entropy: 0.0903691
+00:32:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:32:30   Epoch 79 end
+00:32:30   duration: 2.13 mins
+00:32:30   speed: 1.27 batch / sec
+00:32:30   ETA: 0.00 secs
+00:32:30   max GPU memory: 5725.2 MiB
+00:32:30   ------------------------------
+00:32:30   average cross entropy: 0.185047
+00:32:30   Save checkpoint to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/epoch_640.pth
+00:32:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:32:30   Evaluate on valid
+00:33:14   ------------------------------
+00:33:14   auprc [localization]: 0.390741
+00:33:14   auroc [localization]: 0.0502247
+00:33:14   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:33:14   Epoch 80 begin
+00:33:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:33:47   cross entropy: 0.21816
+00:35:06   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:35:06   cross entropy: 0.121633
+00:35:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:35:22   Epoch 80 end
+00:35:22   duration: 2.87 mins
+00:35:22   speed: 0.94 batch / sec
+00:35:22   ETA: 25.82 mins
+00:35:22   max GPU memory: 5725.3 MiB
+00:35:23   ------------------------------
+00:35:23   average cross entropy: 0.178537
+00:35:23   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:35:23   Epoch 81 begin
+00:36:25   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:36:25   cross entropy: 0.147644
+00:37:31   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:37:31   Epoch 81 end
+00:37:31   duration: 2.15 mins
+00:37:31   speed: 1.26 batch / sec
+00:37:31   ETA: 20.08 mins
+00:37:31   max GPU memory: 5725.5 MiB
+00:37:31   ------------------------------
+00:37:31   average cross entropy: 0.180861
+00:37:31   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:37:31   Epoch 82 begin
+00:37:45   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:37:45   cross entropy: 0.154453
+00:39:04   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:39:04   cross entropy: 0.276761
+00:39:39   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:39:39   Epoch 82 end
+00:39:39   duration: 2.13 mins
+00:39:39   speed: 1.27 batch / sec
+00:39:39   ETA: 16.69 mins
+00:39:39   max GPU memory: 5725.0 MiB
+00:39:39   ------------------------------
+00:39:39   average cross entropy: 0.183742
+00:39:39   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:39:39   Epoch 83 begin
+00:40:23   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:40:23   cross entropy: 0.11726
+00:41:41   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:41:41   cross entropy: 0.192215
+00:41:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:41:47   Epoch 83 end
+00:41:47   duration: 2.12 mins
+00:41:47   speed: 1.27 batch / sec
+00:41:47   ETA: 13.91 mins
+00:41:47   max GPU memory: 5725.1 MiB
+00:41:47   ------------------------------
+00:41:47   average cross entropy: 0.176753
+00:41:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:41:47   Epoch 84 begin
+00:43:00   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:43:00   cross entropy: 0.152952
+00:43:55   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:43:55   Epoch 84 end
+00:43:55   duration: 2.14 mins
+00:43:55   speed: 1.26 batch / sec
+00:43:55   ETA: 11.41 mins
+00:43:55   max GPU memory: 5725.2 MiB
+00:43:55   ------------------------------
+00:43:55   average cross entropy: 0.177269
+00:43:55   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:43:55   Epoch 85 begin
+00:44:20   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:44:20   cross entropy: 0.106189
+00:45:39   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:45:39   cross entropy: 0.144827
+00:46:03   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:46:03   Epoch 85 end
+00:46:03   duration: 2.14 mins
+00:46:03   speed: 1.26 batch / sec
+00:46:03   ETA: 9.03 mins
+00:46:03   max GPU memory: 5725.1 MiB
+00:46:03   ------------------------------
+00:46:03   average cross entropy: 0.173293
+00:46:03   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:46:03   Epoch 86 begin
+00:46:58   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:46:58   cross entropy: 0.102505
+00:48:12   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:48:12   Epoch 86 end
+00:48:12   duration: 2.14 mins
+00:48:12   speed: 1.26 batch / sec
+00:48:12   ETA: 6.73 mins
+00:48:12   max GPU memory: 5725.2 MiB
+00:48:12   ------------------------------
+00:48:12   average cross entropy: 0.169714
+00:48:12   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:48:12   Epoch 87 begin
+00:48:17   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:48:17   cross entropy: 0.185775
+00:49:37   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:49:37   cross entropy: 0.370892
+00:50:21   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:50:21   Epoch 87 end
+00:50:21   duration: 2.15 mins
+00:50:21   speed: 1.26 batch / sec
+00:50:21   ETA: 4.46 mins
+00:50:21   max GPU memory: 5725.3 MiB
+00:50:21   ------------------------------
+00:50:21   average cross entropy: 0.17138
+00:50:21   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:50:21   Epoch 88 begin
+00:50:57   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:50:57   cross entropy: 0.104565
+00:52:17   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:52:17   cross entropy: 0.136685
+00:52:30   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:52:30   Epoch 88 end
+00:52:30   duration: 2.17 mins
+00:52:30   speed: 1.25 batch / sec
+00:52:30   ETA: 2.22 mins
+00:52:30   max GPU memory: 5725.2 MiB
+00:52:31   ------------------------------
+00:52:31   average cross entropy: 0.171471
+00:52:31   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:52:31   Epoch 89 begin
+00:53:36   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:53:36   cross entropy: 0.183988
+00:54:39   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:54:39   Epoch 89 end
+00:54:39   duration: 2.15 mins
+00:54:39   speed: 1.26 batch / sec
+00:54:39   ETA: 0.00 secs
+00:54:39   max GPU memory: 5725.0 MiB
+00:54:39   ------------------------------
+00:54:39   average cross entropy: 0.168486
+00:54:39   Save checkpoint to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/epoch_810.pth
+00:54:39   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:54:39   Evaluate on valid
+00:55:22   ------------------------------
+00:55:22   auprc [localization]: 0.390754
+00:55:22   auroc [localization]: 0.0503523
+00:55:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:55:22   Epoch 90 begin
+00:55:39   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:55:39   cross entropy: 0.238912
+00:56:59   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:56:59   cross entropy: 0.171495
+00:57:32   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:57:32   Epoch 90 end
+00:57:32   duration: 2.88 mins
+00:57:32   speed: 0.94 batch / sec
+00:57:32   ETA: 25.89 mins
+00:57:32   max GPU memory: 5725.3 MiB
+00:57:32   ------------------------------
+00:57:32   average cross entropy: 0.166503
+00:57:32   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:57:32   Epoch 91 begin
+00:58:19   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:58:19   cross entropy: 0.159641
+00:59:39   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:59:39   cross entropy: 0.165782
+00:59:41   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:59:41   Epoch 91 end
+00:59:41   duration: 2.16 mins
+00:59:41   speed: 1.25 batch / sec
+00:59:41   ETA: 20.13 mins
+00:59:41   max GPU memory: 5725.2 MiB
+00:59:41   ------------------------------
+00:59:41   average cross entropy: 0.163709
+00:59:41   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+00:59:41   Epoch 92 begin
+01:01:00   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:01:00   cross entropy: 0.210737
+01:01:55   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:01:55   Epoch 92 end
+01:01:55   duration: 2.24 mins
+01:01:55   speed: 1.21 batch / sec
+01:01:55   ETA: 16.97 mins
+01:01:55   max GPU memory: 5725.2 MiB
+01:01:56   ------------------------------
+01:01:56   average cross entropy: 0.161674
+01:01:56   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:01:56   Epoch 93 begin
+01:02:26   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:02:26   cross entropy: 0.0822731
+01:03:54   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:03:54   cross entropy: 0.102273
+01:04:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:04:18   Epoch 93 end
+01:04:18   duration: 2.38 mins
+01:04:18   speed: 1.14 batch / sec
+01:04:18   ETA: 14.47 mins
+01:04:18   max GPU memory: 5725.3 MiB
+01:04:18   ------------------------------
+01:04:18   average cross entropy: 0.165291
+01:04:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:04:18   Epoch 94 begin
+01:05:22   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:05:22   cross entropy: 0.0536343
+01:06:42   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:06:42   Epoch 94 end
+01:06:42   duration: 2.40 mins
+01:06:42   speed: 1.13 batch / sec
+01:06:42   ETA: 12.05 mins
+01:06:42   max GPU memory: 5725.2 MiB
+01:06:42   ------------------------------
+01:06:42   average cross entropy: 0.161138
+01:06:42   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:06:42   Epoch 95 begin
+01:06:52   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:06:52   cross entropy: 0.138067
+01:08:18   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:08:18   cross entropy: 0.158634
+01:09:04   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:09:04   Epoch 95 end
+01:09:04   duration: 2.37 mins
+01:09:04   speed: 1.14 batch / sec
+01:09:04   ETA: 9.61 mins
+01:09:04   max GPU memory: 5723.9 MiB
+01:09:04   ------------------------------
+01:09:04   average cross entropy: 0.163341
+01:09:04   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:09:04   Epoch 96 begin
+01:09:47   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:09:47   cross entropy: 0.15234
+01:11:14   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:11:14   cross entropy: 0.100168
+01:11:25   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:11:25   Epoch 96 end
+01:11:25   duration: 2.36 mins
+01:11:25   speed: 1.14 batch / sec
+01:11:25   ETA: 7.19 mins
+01:11:25   max GPU memory: 5725.3 MiB
+01:11:26   ------------------------------
+01:11:26   average cross entropy: 0.154088
+01:11:26   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:11:26   Epoch 97 begin
+01:12:41   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:12:41   cross entropy: 0.127479
+01:13:44   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:13:44   Epoch 97 end
+01:13:44   duration: 2.32 mins
+01:13:44   speed: 1.17 batch / sec
+01:13:44   ETA: 4.77 mins
+01:13:44   max GPU memory: 5725.1 MiB
+01:13:44   ------------------------------
+01:13:44   average cross entropy: 0.160528
+01:13:44   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:13:44   Epoch 98 begin
+01:14:04   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:14:04   cross entropy: 0.116999
+01:15:24   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:15:24   cross entropy: 0.134422
+01:15:53   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:15:53   Epoch 98 end
+01:15:53   duration: 2.15 mins
+01:15:53   speed: 1.25 batch / sec
+01:15:53   ETA: 2.36 mins
+01:15:54   max GPU memory: 5725.3 MiB
+01:15:54   ------------------------------
+01:15:54   average cross entropy: 0.155161
+01:15:54   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:15:54   Epoch 99 begin
+01:16:43   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:16:43   cross entropy: 0.184502
+01:18:02   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:18:02   Epoch 99 end
+01:18:02   duration: 2.13 mins
+01:18:02   speed: 1.26 batch / sec
+01:18:02   ETA: 0.00 secs
+01:18:02   max GPU memory: 5725.1 MiB
+01:18:02   ------------------------------
+01:18:02   average cross entropy: 0.159093
+01:18:02   Save checkpoint to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/epoch_1000.pth
+01:18:02   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:18:02   Evaluate on valid
+01:18:45   ------------------------------
+01:18:45   auprc [localization]: 0.390527
+01:18:45   auroc [localization]: 0.0489257
+01:18:45   Load checkpoint from /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/epoch_10.pth
+01:18:45   Save checkpoint to /lustre/isaac/scratch/oqueen/DeepSurface/esm/BinaryLocalization/models/BinaryLocalization/ESM-2-35m/best.pth
+01:18:46   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:18:46   Evaluate on valid
+01:19:29   ------------------------------
+01:19:29   auprc [localization]: 0.393236
+01:19:29   auroc [localization]: 0.0648529
+01:19:29   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+01:19:29   Evaluate on test
+01:20:12   ------------------------------
+01:20:12   auprc [localization]: 0.376512
+01:20:12   auroc [localization]: 0.0631487

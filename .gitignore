@@ -12,3 +12,7 @@ esm/xai/example.pt
 esm/*.sh
 **/.ipynb_checkpoints/
 **/__pycache__/
+esm/BetaLactamase/results/*
+esm/BetaLactamase/models/*
+esm/BinaryLocalization/results/*
+esm/BinaryLocalization/models/*
