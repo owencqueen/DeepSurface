@@ -1,0 +1,1 @@
+{'auroc [localization]': tensor(0.5181, device='cuda:0'), 'auprc [localization]': tensor(0.6087, device='cuda:0')}

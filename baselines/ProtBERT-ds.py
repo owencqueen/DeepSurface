@@ -10,14 +10,20 @@ import logging
 import json
 import os
 import pickle
+import gc
 from sklearn.model_selection import train_test_split
 
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:128"
 
 PATH = '/lustre/isaac/scratch/ababjac/DeepSurface/'
 D_PATH = PATH+'/data/'
 ITERS = 10 # *10 = num_epochs
+START = 6
+NUM_EPOCH = 36
+LOAD_EPOCH = True
 M_NAME = 'ProtBERT'
 D_NAME = 'DeepSurface'
+RUN = 1
 
 @R.register('datasets.DeepSurface')
 @utils.copy_args(data.ProteinDataset.load_sequence)
@@ -39,6 +45,7 @@ class DeepSurface(data.ProteinDataset):
     pkl_file = '/lustre/isaac/scratch/ababjac/deep-surface-protein-NLP/splits/splits.pkl'
 
     split_no = 1
+    run = RUN
 
     train_end = 331854        # first 70%
     val_end = train_end+36874 # next 10%
@@ -59,7 +66,7 @@ class DeepSurface(data.ProteinDataset):
         df = pd.read_csv(self.csv_file, delimiter=',', header=0)
 
         inds = pickle.load(open(self.pkl_file, 'rb'))
-        train_inds, test_inds = inds[self.split_no][0]
+        train_inds, test_inds = inds[self.split_no][self.run]
         train_set = df.iloc[train_inds,:]
         test_set = df.iloc[test_inds,:]
 
@@ -76,6 +83,22 @@ class DeepSurface(data.ProteinDataset):
 
         sequences = np.concatenate([train_seqs_list, val_seqs_list, test_seqs_list]).tolist()
         targets = {'deep_surface' : np.concatenate([train_seqs_labels, val_seqs_labels, test_seqs_labels]).tolist()}
+
+        del df
+        del inds
+        del train_inds
+        del test_inds
+        del train_set
+        del val_set
+        del test_set
+        del train_seqs_list
+        del val_seqs_list
+        del test_seqs_list
+        del train_seqs_labels
+        del val_seqs_labels
+        del test_seqs_labels
+
+        gc.collect()
 
         self.load_sequence(sequences, targets, verbose=verbose, **kwargs)
 
@@ -117,21 +140,25 @@ solver = core.Engine(
                    test_set,
                    optimizer,
                    gpus=[0],
-                   batch_size=64,
+                   batch_size=16,
                    #logger='logging'
                    )
 
 best_score = float("-inf")
 best_epoch = -1
 
-if not os.path.exists(PATH+'/models/{}/{}/'.format(D_NAME, M_NAME)):
-    os.makedirs(PATH+'/models/{}/{}/'.format(D_NAME, M_NAME))
+torch.cuda.empty_cache()
 
+if not os.path.exists(PATH+'/models/{}/{}/run_{}'.format(D_NAME, M_NAME, RUN)):
+    os.makedirs(PATH+'/models/{}/{}/run_{}'.format(D_NAME, M_NAME, RUN))
 
-for i in range(1, ITERS+1):
+if LOAD_EPOCH:
+    solver.load(PATH+'/models/{}/{}/run_{}/epoch_{}.pth'.format(D_NAME, M_NAME, RUN, NUM_EPOCH))
+
+for i in range(START, ITERS+1):
     solver.model.split = 'train'
-    solver.train(num_epoch=10)
-    solver.save(PATH+'/models/{}/{}/epoch_{}.pth'.format(D_NAME, M_NAME, (solver.epoch*i)))
+    solver.train(num_epoch=1)
+    solver.save(PATH+'/models/{}/{}/run_{}/epoch_{}.pth'.format(D_NAME, M_NAME, RUN, (solver.epoch*i)))
 
     solver.model.split = 'valid'
     metric = solver.evaluate('valid', log=True)
@@ -146,24 +173,24 @@ for i in range(1, ITERS+1):
         best_score = score
         best_epoch = (solver.epoch * i)
 
-solver.load(PATH+'/models/{}/{}/epoch_{}.pth'.format(D_NAME, M_NAME, best_epoch))
+solver.load(PATH+'/models/{}/{}/run_{}/epoch_{}.pth'.format(D_NAME, M_NAME, RUN, best_epoch))
 
 #with open(PATH+'/models/{}/best_epoch_{}.json'.format(M_NAME, best_epoch), 'w') as fout:
 #    json.dump(solver.config_dict(), fout)
 
-solver.save(PATH+'/models/{}/{}/best.pth'.format(D_NAME, M_NAME))
+solver.save(PATH+'/models/{}/{}/run_{}/best.pth'.format(D_NAME, M_NAME, RUN))
 
 if not os.path.exists(PATH+'/results/{}/'.format(D_NAME)):
     os.makedirs(PATH+'/results/{}/'.format(D_NAME))
 
 solver.model.split = 'valid'
 eval_metrics = solver.evaluate('valid', log=True)
-with open(PATH+'/results/{}/{}_eval_metrics.log.txt'.format(D_NAME, M_NAME), 'w') as f:
+with open(PATH+'/results/{}/{}_eval_metrics_{}.log.txt'.format(D_NAME, M_NAME, RUN), 'w') as f:
     f.write(str(eval_metrics))
 
 solver.model.split = 'test'
 test_metrics = solver.evaluate('test', log=True)
-with open(PATH+'/results/{}/{}_test_metrics.log.txt'.format(D_NAME, M_NAME), 'w') as f:
+with open(PATH+'/results/{}/{}_test_metrics_{}.log.txt'.format(D_NAME, M_NAME, RUN), 'w') as f:
     f.write(str(test_metrics))
 
 

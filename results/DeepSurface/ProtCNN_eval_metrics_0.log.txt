@@ -1,0 +1,1 @@
+{'auroc [deep_surface]': tensor(0.9082, device='cuda:0'), 'auprc [deep_surface]': tensor(0.9041, device='cuda:0')}

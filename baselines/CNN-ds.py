@@ -18,6 +18,7 @@ D_PATH = PATH+'/data/'
 ITERS = 10 # *10 = num_epochs
 M_NAME = 'ProtCNN'
 D_NAME = 'DeepSurface'
+RUN = 4
 
 @R.register('datasets.DeepSurface')
 @utils.copy_args(data.ProteinDataset.load_sequence)
@@ -39,6 +40,7 @@ class DeepSurface(data.ProteinDataset):
     pkl_file = '/lustre/isaac/scratch/ababjac/deep-surface-protein-NLP/splits/splits.pkl'
 
     split_no = 1
+    run = RUN
 
     train_end = 331854        # first 70%
     val_end = train_end+36874 # next 10%
@@ -59,7 +61,7 @@ class DeepSurface(data.ProteinDataset):
         df = pd.read_csv(self.csv_file, delimiter=',', header=0)
 
         inds = pickle.load(open(self.pkl_file, 'rb'))
-        train_inds, test_inds = inds[self.split_no][0]
+        train_inds, test_inds = inds[self.split_no][self.run]
         train_set = df.iloc[train_inds,:]
         test_set = df.iloc[test_inds,:]
 
@@ -127,14 +129,14 @@ solver = core.Engine(
 best_score = float("-inf")
 best_epoch = -1
 
-if not os.path.exists(PATH+'/models/{}/{}/'.format(D_NAME, M_NAME)):
-    os.makedirs(PATH+'/models/{}/{}/'.format(D_NAME, M_NAME))
+if not os.path.exists(PATH+'/models/{}/{}/run_{}/'.format(D_NAME, M_NAME, RUN)):
+    os.makedirs(PATH+'/models/{}/{}/run_{}/'.format(D_NAME, M_NAME, RUN))
 
 
 for i in range(1, ITERS+1):
     solver.model.split = 'train'
     solver.train(num_epoch=10)
-    solver.save(PATH+'/models/{}/{}/epoch_{}.pth'.format(D_NAME, M_NAME, (solver.epoch*i)))
+    solver.save(PATH+'/models/{}/{}/run_{}/epoch_{}.pth'.format(D_NAME, M_NAME, RUN, (solver.epoch*i)))
 
     solver.model.split = 'valid'
     metric = solver.evaluate('valid', log=True)
@@ -149,24 +151,24 @@ for i in range(1, ITERS+1):
         best_score = score
         best_epoch = (solver.epoch * i)
 
-solver.load(PATH+'/models/{}/{}/epoch_{}.pth'.format(D_NAME, M_NAME, best_epoch))
+solver.load(PATH+'/models/{}/{}/run_{}/epoch_{}.pth'.format(D_NAME, M_NAME, RUN, best_epoch))
 
 #with open(PATH+'/models/{}/best_epoch_{}.json'.format(M_NAME, best_epoch), 'w') as fout:
 #    json.dump(solver.config_dict(), fout)
 
-solver.save(PATH+'/models/{}/{}/best.pth'.format(D_NAME, M_NAME))
+solver.save(PATH+'/models/{}/{}/run_{}/best.pth'.format(D_NAME, M_NAME, RUN))
 
 if not os.path.exists(PATH+'/results/{}/'.format(D_NAME)):
     os.makedirs(PATH+'/results/{}/'.format(D_NAME))
 
 solver.model.split = 'valid'
 eval_metrics = solver.evaluate('valid', log=True)
-with open(PATH+'/results/{}/{}_eval_metrics.log.txt'.format(D_NAME, M_NAME), 'w') as f:
+with open(PATH+'/results/{}/{}_eval_metrics_{}.log.txt'.format(D_NAME, M_NAME, RUN), 'w') as f:
     f.write(str(eval_metrics))
 
 solver.model.split = 'test'
 test_metrics = solver.evaluate('test', log=True)
-with open(PATH+'/results/{}/{}_test_metrics.log.txt'.format(D_NAME, M_NAME), 'w') as f:
+with open(PATH+'/results/{}/{}_test_metrics_{}.log.txt'.format(D_NAME, M_NAME, RUN), 'w') as f:
     f.write(str(test_metrics))
 
 
