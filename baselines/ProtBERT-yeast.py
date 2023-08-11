@@ -10,6 +10,7 @@ import logging
 import json
 import os
 import re
+import gc
 import pickle
 from sklearn.model_selection import train_test_split
 
@@ -23,7 +24,7 @@ NUM_EPOCH = None
 LOAD_EPOCH = False
 M_NAME = 'ProtBERT'
 D_NAME = 'YeastBio'
-RUN = 0
+RUN = 3
 
 @R.register('datasets.YeastBio')
 @utils.copy_args(data.ProteinDataset.load_sequence)
@@ -63,7 +64,19 @@ class YeastBio(data.ProteinDataset):
 
         self.path = path
 
-        df = pd.read_csv(self.csv_file, delimiter=',', header=0)
+        reference = []
+        evolved = []
+        yeast_id = []
+        with open(self.txt_file, 'r') as f:
+            lines = f.readlines()
+
+            for i in range(0, len(lines), 3):
+                yeast_id.append(re.sub('\W+', '', lines[i]))
+                reference.append(re.sub('\W+', '', lines[i+1]))
+                evolved.append(re.sub('\W+', '', lines[i+2]))
+
+        df = pd.DataFrame({'yeast_id' : yeast_id, 'reference.sequence' : reference, 'evolved.sequence' : evolved})
+
 
         inds = pickle.load(open(self.pkl_file, 'rb'))
         train_inds, test_inds = inds[self.split_no][self.run]
@@ -82,10 +95,8 @@ class YeastBio(data.ProteinDataset):
         test_seqs_labels = np.concatenate([np.zeros(test_set.shape[0], dtype=int), np.ones(test_set.shape[0], dtype=int)])
 
         sequences = np.concatenate([train_seqs_list, val_seqs_list, test_seqs_list]).tolist()
-        targets = {'ref_ecolve' : np.concatenate([train_seqs_labels, val_seqs_labels, test_seqs_labels]).tolist()}
+        targets = {'ref_evolve' : np.concatenate([train_seqs_labels, val_seqs_labels, test_seqs_labels]).tolist()}
 
-        #not needed on small data
-        '''
         del df
         del inds
         del train_inds
@@ -101,7 +112,6 @@ class YeastBio(data.ProteinDataset):
         del test_seqs_labels
 
         gc.collect()
-        '''
 
         self.load_sequence(sequences, targets, verbose=verbose, **kwargs)
 
@@ -143,7 +153,7 @@ solver = core.Engine(
                    test_set,
                    optimizer,
                    gpus=[0],
-                   batch_size=16,
+                   batch_size=8,
                    #logger='logging'
                    )
 

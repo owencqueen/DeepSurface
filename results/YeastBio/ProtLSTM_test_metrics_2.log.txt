@@ -1,0 +1,1 @@
+{'auroc [ref_evolved]': tensor(0.4999, device='cuda:0'), 'auprc [ref_evolved]': tensor(0.4997, device='cuda:0')}
