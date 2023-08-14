@@ -1,0 +1,1 @@
+{'auroc [ref_ecolve]': tensor(0.5207, device='cuda:0'), 'auprc [ref_ecolve]': tensor(0.5127, device='cuda:0')}

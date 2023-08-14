@@ -19,7 +19,7 @@ class YeastBio(data.ProteinDataset):
     '''
     Paired homological sequences of reference and "evolved" proteins. Label is binary: 1 - evolved and 0 - reference.
     Statistics:
-        - #Train: 8804
+        - #Train: 8004
         - #Valid: 890
         - #Test: 2224
         - #Classification task: 1
@@ -35,7 +35,7 @@ class YeastBio(data.ProteinDataset):
     split_no = 1
     run = RUN
 
-    train_end = 8804         # first 70%
+    train_end = 8004         # first 70%
     val_end = train_end+890  # next 10%
     test_end = val_end+2224  # last 20%
 
@@ -83,10 +83,10 @@ class YeastBio(data.ProteinDataset):
         sequences = list(np.concatenate([train_seqs_list, val_seqs_list, test_seqs_list]))
         targets = {'ref_evolve' : np.concatenate([train_seqs_labels, val_seqs_labels, test_seqs_labels]).tolist()}
 
-#        print(len(train_seqs_list), len(val_seqs_list), len(test_seqs_list))
+        print(len(train_seqs_list), len(val_seqs_list), len(test_seqs_list))
 #        print(type(targets['ref_evolve'][0]))
-#        print(sequences)
-#        print(targets)
+        print(len(sequences))
+        print(len(targets))
 
         self.load_sequence(sequences, targets, verbose=verbose, **kwargs)
 
