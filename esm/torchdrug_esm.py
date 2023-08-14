@@ -190,7 +190,7 @@ class CustomModel(nn.Module, core.Configurable):
         output = self.model(input, repr_layers=[self.repr_layers[self.model_name]])
         residue_feature = output["representations"][self.repr_layers[self.model_name]]
 
-        graph_feature = residue_feature[:,0,:]
+        graph_feature = residue_feature[:,0,:] # Reads out the CLS token
 
         residue_feature = functional.padded_to_variadic(residue_feature, size_ext)
         starts = size_ext.cumsum(0) - size_ext

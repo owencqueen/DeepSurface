@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/om2/user/oqueen/DeepSurface/baselines/ProtBERT-ds.py", line 115, in <module>
+    dataset = DeepSurface(D_PATH, atom_feature=None, bond_feature=None, residue_feature='default', transform=transform)
+  File "/om2/user/oqueen/anaconda/envs/PLM/lib/python3.8/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/om2/user/oqueen/anaconda/envs/PLM/lib/python3.8/site-packages/torchdrug/core/core.py", line 296, in wrapper
+    return init(self, *args, **kwargs)
+  File "/om2/user/oqueen/DeepSurface/baselines/ProtBERT-ds.py", line 68, in __init__
+    inds = pickle.load(open(self.pkl_file, 'rb'))
+FileNotFoundError: [Errno 2] No such file or directory: '/om2/user/oqueen/DeepSurface/splits/splits.pkl'

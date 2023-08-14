@@ -15,7 +15,7 @@ from sklearn.model_selection import train_test_split
 
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:128"
 
-PATH = '/lustre/isaac/scratch/ababjac/DeepSurface/'
+PATH = '/om2/user/oqueen/DeepSurface/'
 D_PATH = PATH+'/data/'
 ITERS = 10 # *10 = num_epochs
 START = 6
@@ -23,7 +23,7 @@ NUM_EPOCH = 36
 LOAD_EPOCH = True
 M_NAME = 'ProtBERT'
 D_NAME = 'DeepSurface'
-RUN = 1
+RUN = 0
 
 @R.register('datasets.DeepSurface')
 @utils.copy_args(data.ProteinDataset.load_sequence)
@@ -41,8 +41,8 @@ class DeepSurface(data.ProteinDataset):
         **kwargs
     '''
 
-    csv_file = '/lustre/isaac/proj/UTK0196/deep-surface-protein-data/M0059E_training_set.tsv'
-    pkl_file = '/lustre/isaac/scratch/ababjac/deep-surface-protein-NLP/splits/splits.pkl'
+    csv_file = '/home/oqueen/deep-surface-protein-data/M0059E_training_set.tsv'
+    pkl_file = '/om2/user/oqueen/DeepSurface/data/splits.pkl'
 
     split_no = 1
     run = RUN

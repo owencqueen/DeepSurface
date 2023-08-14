@@ -5,7 +5,7 @@ import logging
 import json
 import os, argparse, sys
 
-sys.path.append("/home/oqueen/DeepSurface/esm")
+sys.path.append("/om2/user/oqueen/DeepSurface/esm")
 from torchdrug_esm import CustomModel
 
 import sklearn
@@ -18,7 +18,7 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-PATH = '/home/oqueen/DeepSurface'
+PATH = '/om2/user/oqueen/DeepSurface'
 D_PATH = PATH+'/data/'
 ITERS = 10 # *10 = num_epochs
 #modelname = 'ProtLSTM'

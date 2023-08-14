@@ -16,3 +16,5 @@ esm/BetaLactamase/results/*
 esm/BetaLactamase/models/*
 esm/BinaryLocalization/results/*
 esm/BinaryLocalization/models/*
+*.pt
+*.pth

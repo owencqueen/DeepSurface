@@ -1,0 +1,210 @@
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+
+Constructing proteins from sequences:   0%|          | 0/8662 [00:00<?, ?it/s]
+Constructing proteins from sequences:   0%|          | 37/8662 [00:00<00:23, 368.52it/s]
+Constructing proteins from sequences:   1%|          | 82/8662 [00:00<00:20, 414.34it/s]
+Constructing proteins from sequences:   2%|▏         | 131/8662 [00:00<00:19, 443.91it/s]
+Constructing proteins from sequences:   2%|▏         | 178/8662 [00:00<00:18, 452.32it/s]
+Constructing proteins from sequences:   3%|▎         | 226/8662 [00:00<00:18, 460.34it/s]
+Constructing proteins from sequences:   3%|▎         | 274/8662 [00:00<00:18, 465.76it/s]
+Constructing proteins from sequences:   4%|▎         | 321/8662 [00:00<00:22, 368.91it/s]
+Constructing proteins from sequences:   4%|▍         | 369/8662 [00:00<00:20, 398.20it/s]
+Constructing proteins from sequences:   5%|▍         | 419/8662 [00:00<00:19, 425.75it/s]
+Constructing proteins from seq/om2/user/oqueen/DeepSurface 464/8662 [00:01<00:19, 425.57it/s]
+Constructing proteins from sequences:   6%|▌         | 514/8662 [00:01<00:18, 443.22it/s]
+Constructing proteins from sequences:   7%|▋         | 564/8662 [00:01<00:17, 455.96it/s]
+Constructing proteins from sequences:   7%|▋         | 611/8662 [00:01<00:17, 459.07it/s]
+Constructing proteins from sequences:   8%|▊         | 658/8662 [00:01<00:17, 457.24it/s]
+Construc/om2/user/oqueen/DeepSurfacences:   8%|▊         | 707/8662 [00:01<00:17, 463.62it/s]
+Constructing proteins from sequences:   9%|▊         | 754/8662 [00:01<00:17, 462.30it/s]
+Construc/om2/user/oqueen/DeepSurfacences:   9%|▉         | 801/8662 [00:01<00:17, 456.09it/s]
+Constructing proteins from sequences:  10%|▉         | 848/8662 [00:01<00:17, 459.48it/s]
+Constructing proteins from sequences:  10%|█         | 899/8662 [00:02<00:16, 472.26it/s]
+Constructing proteins from sequences:  11%|█         | 948/8662 [00:02<00:16, 474.60it/s]
+Constructing proteins from sequences:  12%|█▏        | 997/8662 [00:02<00:16, 478.09it/s]/om2/user/oqueen/anaconda/envs/PLM/lib/python3.8/site-packages/torchdrug/data/protein.py:264: UserWarning: Unknown residue symbol `X`. Treat as glycine
+  warnings.warn("Unknown residue symbol `%s`. Treat as glycine" % residue)
+
+Constructing proteins from sequences:  12%|█▏        | 1045/8662 [00:02<00:16, 457.97it/s]
+Constructing proteins from sequences:  13%|█▎        | 1092/8662 [00:02<00:16, 461.39it/s]
+Constructing proteins from sequences:  13%|█▎        | 1139/8662 [00:02<00:16, 445.28it/s]
+Constructing proteins from sequences:  14%|█▎        | 1190/8662 [00:02<00:16, 462.28it/s]
+Constructing proteins from sequences:  14%|█▍        | 1237/8662 [00:02<00:16, 451.83it/s]
+Constructing proteins from sequences:  15%|█▍        | 1291/8662 [00:02<00:15, 474.55it/s]
+Constructing proteins from sequences:  15%|█▌        | 1342/8662 [00:02<00:15, 483.49it/s]
+Constructing proteins from sequences:  16%|█▌        | 1391/8662 [00:03<00:15, 477.24it/s]
+Constructing proteins from sequences:  17%|█▋        | 1439/8662 [00:03<00:15, 470.36it/s]
+Constructing proteins from sequences:  17%|█▋        | 1487/8662 [00:03<00:19, 367.66it/s]
+Constructing proteins from sequences:  18%|█▊        | 1536/8662 [00:03<00:17, 397.08it/s]/om2/user/oqueen/anaconda/envs/PLM/lib/python3.8/site-packages/torchdrug/data/protein.py:264: UserWarning: Unknown residue symbol `U`. Treat as glycine
+  warnings.warn("Unknown residue symbol `%s`. Treat as glycine" % residue)
+
+Constructing proteins from sequences:  18%|█▊        | 1585/8662 [00:03<00:16, 420.35it/s]
+Constructing proteins from sequences:  19%|█▉        | 1634/8662 [00:03<00:16, 437.68it/s]
+Constructing proteins from sequences:  20%|█▉        | 1690/8662 [00:03<00:14, 469.96it/s]
+Constructing proteins from sequences:  20%|██        | 1739/8662 [00:03<00:14, 474.50it/s]
+Constructing proteins from sequences:  21%|██        | 1788/8662 [00:03<00:14, 470.76it/s]
+Constructing proteins from sequences:  21%|██        | 1836/8662 [00:04<00:14, 470.50it/s]
+Constructing proteins from sequences:  22%|██▏       | 1884/8662 [00:04<00:14, 466.17it/s]
+Constructing proteins from sequences:  22%|██▏       | 1932/8662 [00:04<00:14, 467.52it/s]
+Constructing proteins from sequences:  23%|██▎       | 1980/8662 [00:04<00:14, 470.32it/s]
+Constructing proteins from sequences:  23%|██▎       | 2028/8662 [00:04<00:14, 466.94it/s]
+Constructing proteins from sequences:  24%|██▍       | 2077/8662 [00:04<00:13, 470.93it/s]
+Constructing proteins from sequences:  25%|██▍       | 2125/8662 [00:04<00:14, 465.68it/s]
+Constructing proteins from sequences:  25%|██▌       | 2181/8662 [00:04<00:13, 492.39it/s]
+Constructing proteins from sequences:  26%|██▌       | 2233/8662 [00:04<00:12, 496.78it/s]
+Constructing proteins from sequences:  26%|██▋       | 2285/8662 [00:05<00:12, 502.50it/s]
+Constructing proteins from sequences:  27%|██▋       | 2336/8662 [00:05<00:12, 500.86it/s]
+Constructing proteins from sequences:  28%|██▊       | 2388/8662 [00:05<00:12, 504.24it/s]
+Constructing proteins from sequences:  28%|██▊       | 2447/8662 [00:05<00:11, 527.48it/s]
+Constructing proteins from sequences:  29%|██▉       | 2500/8662 [00:05<00:11, 519.92it/s]
+Constructing proteins from sequences:  29%|██▉       | 2553/8662 [00:05<00:11, 512.99it/s]
+Constructing proteins from sequences:  30%|███       | 2609/8662 [00:05<00:11, 521.75it/s]
+Constructing proteins from sequences:  31%|███       | 2669/8662 [00:05<00:11, 543.93it/s]
+Constructing proteins from sequences:  31%|███▏      | 2727/8662 [00:05<00:10, 552.43it/s]
+Constructing proteins from sequences:  32%|███▏      | 2783/8662 [00:05<00:10, 536.97it/s]
+Constructing proteins from sequences:  33%|███▎      | 2837/8662 [00:06<00:15, 384.88it/s]
+Constructing proteins from sequences:  33%|███▎      | 2896/8662 [00:06<00:13, 429.58it/s]
+Constructing proteins from sequences:  34%|███▍      | 2954/8662 [00:06<00:12, 463.68it/s]
+Constructing proteins from sequences:  35%|███▍      | 3010/8662 [00:06<00:11, 486.10it/s]
+Constructing proteins from sequences:  35%|███▌      | 3065/8662 [00:06<00:11, 499.62it/s]/om2/user/oqueen/anaconda/envs/PLM/lib/python3.8/site-packages/torchdrug/data/protein.py:264: UserWarning: Unknown residue symbol `B`. Treat as glycine
+  warnings.warn("Unknown residue symbol `%s`. Treat as glycine" % residue)
+
+Constructing proteins from sequences:  36%|███▌      | 3118/8662 [00:06<00:11, 487.42it/s]
+Constructing proteins from sequences:  37%|███▋      | 3171/8662 [00:06<00:11, 498.26it/s]
+Constructing proteins from sequences:  37%|███▋      | 3223/8662 [00:06<00:10, 495.55it/s]
+Constructing proteins from sequences:  38%|███▊      | 3274/8662 [00:07<00:10, 498.79it/s]
+Constructing proteins from sequences:  38%|███▊      | 3325/8662 [00:07<00:10, 499.13it/s]
+Constructing proteins from sequences:  39%|███▉      | 3379/8662 [00:07<00:10, 506.57it/s]
+Constructing proteins from sequences:  40%|███▉      | 3435/8662 [00:07<00:10, 521.93it/s]
+Constructing proteins from sequences:  40%|████      | 3489/8662 [00:07<00:09, 525.00it/s]
+Constructing proteins from sequences:  41%|████      | 3544/8662 [00:07<00:09, 529.55it/s]
+Constructing proteins from sequences:  42%|████▏     | 3598/8662 [00:07<00:09, 517.72it/s]
+Constructing proteins from sequences:  42%|████▏     | 3652/8662 [00:07<00:09, 523.66it/s]
+Constructing proteins from sequences:  43%|████▎     | 3716/8662 [00:07<00:08, 556.71it/s]
+Constructing proteins from sequences:  44%|████▎     | 3772/8662 [00:07<00:09, 530.68it/s]
+Constructing proteins from sequences:  44%|████▍     | 3829/8662 [00:08<00:08, 537.39it/s]
+Constructing proteins from sequences:  45%|████▍     | 3883/8662 [00:08<00:09, 517.37it/s]
+Constructing proteins from sequences:  45%|████▌     | 3937/8662 [00:08<00:09, 522.32it/s]
+Constructing proteins from sequences:  46%|████▌     | 3990/8662 [00:08<00:09, 514.85it/s]
+Constructing proteins from sequences:  47%|████▋     | 4050/8662 [00:08<00:08, 538.27it/s]
+Constructing proteins from sequences:  47%|████▋     | 4105/8662 [00:08<00:08, 541.09it/s]
+Constructing proteins from sequences:  48%|████▊     | 4160/8662 [00:08<00:08, 532.57it/s]
+Constructing proteins from sequences:  49%|████▊     | 4217/8662 [00:08<00:08, 540.96it/s]
+Constructing proteins from sequences:  49%|████▉     | 4273/8662 [00:08<00:08, 545.65it/s]
+Constructing proteins from sequences:  50%|████▉     | 4328/8662 [00:08<00:08, 537.83it/s]
+Constructing proteins from sequences:  51%|█████     | 4382/8662 [00:09<00:07, 537.36it/s]
+Constructing proteins from sequences:  51%|█████     | 4436/8662 [00:09<00:08, 526.46it/s]
+Constructing proteins from sequences:  52%|█████▏    | 4489/8662 [00:09<00:10, 385.03it/s]
+Constructing proteins from sequences:  53%|█████▎    | 4549/8662 [00:09<00:09, 434.39it/s]
+Constructing proteins from sequences:  53%|█████▎    | 4602/8662 [00:09<00:08, 458.09it/s]
+Constructing proteins from sequences:  54%|█████▍    | 4663/8662 [00:09<00:08, 497.99it/s]
+Constructing proteins from sequences:  55%|█████▍    | 4722/8662 [00:09<00:07, 521.94it/s]
+Constructing proteins from sequences:  55%|█████▌    | 4782/8662 [00:09<00:07, 542.24it/s]
+Constructing proteins from sequences:  56%|█████▌    | 4839/8662 [00:10<00:06, 546.44it/s]
+Constructing proteins from sequences:  57%|█████▋    | 4897/8662 [00:10<00:06, 553.52it/s]
+Constructing proteins from sequences:  57%|█████▋    | 4954/8662 [00:10<00:06, 549.16it/s]
+Constructing proteins from sequences:  58%|█████▊    | 5015/8662 [00:10<00:06, 564.40it/s]
+Constructing proteins from sequences:  59%|█████▊    | 5072/8662 [00:10<00:06, 550.20it/s]
+Constructing proteins from sequences:  59%|█████▉    | 5128/8662 [00:10<00:06, 532.13it/s]
+Constructing proteins from sequences:  60%|█████▉    | 5182/8662 [00:10<00:06, 534.13it/s]
+Constructing proteins from sequences:  60%|██████    | 5236/8662 [00:10<00:06, 515.42it/s]
+Constructing proteins from sequences:  61%|██████    | 5288/8662 [00:10<00:06, 508.95it/s]
+Constructing proteins from sequences:  62%|██████▏   | 5340/8662 [00:10<00:06, 488.84it/s]
+Constructing proteins from sequences:  62%|██████▏   | 5390/8662 [00:11<00:06, 490.81it/s]
+Constructing proteins from sequences:  63%|██████▎   | 5440/8662 [00:11<00:06, 487.38it/s]
+Constructing proteins from sequences:  63%|██████▎   | 5489/8662 [00:11<00:06, 464.90it/s]
+Constructing proteins from sequences:  64%|██████▍   | 5537/8662 [00:11<00:06, 466.65it/s]
+Constructing proteins from sequences:  65%|██████▍   | 5587/8662 [00:11<00:06, 474.16it/s]
+Constructing proteins from sequences:  65%|██████▌   | 5641/8662 [00:11<00:06, 489.11it/s]
+Constructing proteins from sequences:  66%|██████▌   | 5692/8662 [00:11<00:05, 495.16it/s]
+Constructing proteins from sequences:  66%|██████▋   | 5744/8662 [00:11<00:05, 498.98it/s]
+Constructing proteins from sequences:  67%|██████▋   | 5794/8662 [00:11<00:05, 493.60it/s]
+Constructing proteins from sequences:  67%|██████▋   | 5844/8662 [00:12<00:05, 489.16it/s]
+Constructing proteins from sequences:  68%|██████▊   | 5893/8662 [00:12<00:05, 481.33it/s]
+Constructing proteins from sequences:  69%|██████▊   | 5943/8662 [00:12<00:05, 486.64it/s]
+Constructing proteins from sequences:  69%|██████▉   | 5992/8662 [00:12<00:05, 474.42it/s]
+Constructing proteins from sequences:  70%|██████▉   | 6052/8662 [00:12<00:05, 507.30it/s]
+Constructing proteins from sequences:  70%|███████   | 6103/8662 [00:12<00:05, 507.83it/s]
+Constructing proteins from sequences:  71%|███████   | 6167/8662 [00:12<00:04, 546.09it/s]
+Constructing proteins from sequences:  72%|███████▏  | 6222/8662 [00:12<00:04, 527.02it/s]
+Constructing proteins from sequences:  72%|███████▏  | 6279/8662 [00:12<00:04, 536.66it/s]
+Constructing proteins from sequences:  73%|███████▎  | 6335/8662 [00:12<00:04, 541.30it/s]
+Constructing proteins from sequences:  74%|███████▍  | 6390/8662 [00:13<00:04, 530.96it/s]
+Constructing proteins from sequences:  74%|███████▍  | 6444/8662 [00:13<00:06, 340.57it/s]
+Constructing proteins from sequences:  75%|███████▍  | 6496/8662 [00:13<00:05, 377.87it/s]
+Constructing proteins from sequences:  76%|███████▌  | 6553/8662 [00:13<00:05, 419.88it/s]
+Constructing proteins from sequences:  76%|███████▋  | 6606/8662 [00:13<00:04, 446.30it/s]
+Constructing proteins from sequences:  77%|███████▋  | 6662/8662 [00:13<00:04, 475.02it/s]
+Constructing proteins from sequences:  78%|███████▊  | 6717/8662 [00:13<00:03, 494.87it/s]
+Constructing proteins from sequences:  78%|███████▊  | 6779/8662 [00:13<00:03, 526.18it/s]
+Constructing proteins from sequences:  79%|███████▉  | 6834/8662 [00:14<00:03, 515.45it/s]
+Constructing proteins from sequences:  80%|███████▉  | 6893/8662 [00:14<00:03, 534.48it/s]
+Constructing proteins from sequences:  80%|████████  | 6948/8662 [00:14<00:03, 497.20it/s]
+Constructing proteins from sequences:  81%|████████  | 7000/8662 [00:14<00:03, 474.08it/s]
+Constructing proteins from sequences:  81%|████████▏ | 7049/8662 [00:14<00:03, 446.46it/s]
+Constructing proteins from sequences:  82%|████████▏ | 7095/8662 [00:14<00:03, 431.03it/s]
+Constructing proteins from sequences:  82%|████████▏ | 7139/8662 [00:14<00:03, 416.90it/s]
+Constructing proteins from sequences:  83%|████████▎ | 7182/8662 [00:14<00:03, 411.61it/s]
+Constructing proteins from sequences:  83%|████████▎ | 7224/8662 [00:15<00:03, 410.26it/s]
+Constructing proteins from sequences:  84%|████████▍ | 7266/8662 [00:15<00:03, 408.46it/s]
+Constructing proteins from sequences:  84%|████████▍ | 7310/8662 [00:15<00:03, 413.82it/s]
+Constructing proteins from sequences:  85%|████████▍ | 7359/8662 [00:15<00:03, 433.80it/s]
+Constructing proteins from sequences:  85%|████████▌ | 7404/8662 [00:15<00:02, 438.03it/s]
+Constructing proteins from sequences:  86%|████████▌ | 7448/8662 [00:15<00:02, 420.03it/s]
+Constructing proteins from sequences:  87%|████████▋ | 7498/8662 [00:15<00:02, 440.77it/s]
+Constructing proteins from sequences:  87%|████████▋ | 7543/8662 [00:15<00:02, 430.12it/s]
+Constructing proteins from sequences:  88%|████████▊ | 7587/8662 [00:15<00:02, 432.11it/s]
+Constructing proteins from sequences:  88%|████████▊ | 7633/8662 [00:15<00:02, 437.96it/s]
+Constructing proteins from sequences:  89%|████████▊ | 7680/8662 [00:16<00:02, 442.64it/s]
+Constructing proteins from sequences:  89%|████████▉ | 7729/8662 [00:16<00:02, 455.58it/s]
+Constructing proteins from sequences:  90%|████████▉ | 7786/8662 [00:16<00:01, 487.92it/s]
+Constructing proteins from sequences:  91%|█████████ | 7840/8662 [00:16<00:01, 499.64it/s]
+Constructing proteins from sequences:  91%|█████████ | 7891/8662 [00:16<00:01, 483.48it/s]
+Constructing proteins from sequences:  92%|█████████▏| 7942/8662 [00:16<00:01, 486.72it/s]
+Constructing proteins from sequences:  92%|█████████▏| 7995/8662 [00:16<00:01, 498.49it/s]
+Constructing proteins from sequences:  93%|█████████▎| 8060/8662 [00:16<00:01, 542.48it/s]
+Constructing proteins from sequences:  94%|█████████▎| 8116/8662 [00:16<00:01, 544.49it/s]
+Constructing proteins from sequences:  94%|█████████▍| 8171/8662 [00:17<00:00, 511.26it/s]
+Constructing proteins from sequences:  95%|█████████▌| 8232/8662 [00:17<00:00, 535.94it/s]/om2/user/oqueen/anaconda/envs/PLM/lib/python3.8/site-packages/torchdrug/data/protein.py:264: UserWarning: Unknown residue symbol `Z`. Treat as glycine
+  warnings.warn("Unknown residue symbol `%s`. Treat as glycine" % residue)
+
+Constructing proteins from sequences:  96%|█████████▌| 8297/8662 [00:17<00:00, 567.01it/s]
+Constructing proteins from sequences:  97%|█████████▋| 8365/8662 [00:17<00:00, 599.27it/s]
+Constructing proteins from sequences:  97%|█████████▋| 8438/8662 [00:17<00:00, 635.51it/s]
+Constructing proteins from sequences:  98%|█████████▊| 8506/8662 [00:17<00:00, 648.28it/s]
+Constructing proteins from sequences:  99%|█████████▉| 8572/8662 [00:17<00:00, 647.12it/s]
+Constructing proteins from sequences: 100%|█████████▉| 8639/8662 [00:17<00:00, 652.56it/s]
+Constructing proteins from sequences: 100%|██████████| 8662/8662 [00:17<00:00, 488.06it/s]
+Traceback (most recent call last):
+  File "ESM-binloc.py", line 32, in <module>
+    model = CustomModel(path="/home/oqueen/DeepSurface/esm/BinaryLocalization/", 
+  File "/om2/user/oqueen/anaconda/envs/PLM/lib/python3.8/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/om2/user/oqueen/anaconda/envs/PLM/lib/python3.8/site-packages/torchdrug/core/core.py", line 296, in wrapper
+    return init(self, *args, **kwargs)
+  File "/home/oqueen/DeepSurface/esm/torchdrug_esm.py", line 109, in __init__
+    _model, alphabet = self.load_weight(path)
+  File "/home/oqueen/DeepSurface/esm/torchdrug_esm.py", line 130, in load_weight
+    model_data = torch.load(model_file, map_location="cpu")
+  File "/om2/user/oqueen/anaconda/envs/PLM/lib/python3.8/site-packages/torch/serialization.py", line 797, in load
+    with _open_zipfile_reader(opened_file) as opened_zipfile:
+  File "/om2/user/oqueen/anaconda/envs/PLM/lib/python3.8/site-packages/torch/serialization.py", line 283, in __init__
+    super().__init__(torch._C.PyTorchFileReader(name_or_buffer))
+RuntimeError: PytorchStreamReader failed reading zip archive: failed finding central directory
